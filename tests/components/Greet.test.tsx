@@ -3,7 +3,7 @@ import Greet from '../../src/components/Greet';
 
 
 describe('Greet', () => {
-    it('should render Hellow with the name when name is provided', () => {
+    it('should render Hello with the name when name is provided', () => {
         render(<Greet name="Ray" />);
 
         const heading = screen.getByRole('heading');
