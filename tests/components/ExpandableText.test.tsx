@@ -2,20 +2,18 @@ import { render, screen } from '@testing-library/react';
 import ExpandableText from '../../src/components/ExpandableText';
 
 describe('ExpandableText', () => {
+    const limit = 255;
+    const shortText = 'Some Short Text';
+    const longText = 'a'.repeat(limit + 1);
+    const truncatedText = longText.substring(0, limit) + '...';
+
     it('should render the full text if less than 255 characters', () => {
-        const text = 'Some Short Text';
-
-        render(<ExpandableText text={text} />);    
-
-        expect(screen.getByText(text)).toBeInTheDocument();
+        render(<ExpandableText text={shortText} />);    
+        expect(screen.getByText(shortText)).toBeInTheDocument();
     })
 
     it('should truncate text if longer than 255 characters', () => {
-        const text = 'a'.repeat(256);
-
-        render(<ExpandableText text={text} />);    
-
-        const truncatedText = text.substring(0,255) + '...';
+        render(<ExpandableText text={longText} />);    
         expect(screen.getByText(truncatedText)).toBeInTheDocument();
 
         const button = screen.getByRole('button');
