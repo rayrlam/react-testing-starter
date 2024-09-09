@@ -1,4 +1,7 @@
 # Testing React Apps
+![React](https://img.shields.io/badge/React-^18.2.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-^5.2.2-yellow)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 This is the starter project for Reacting testing From Mosh Hamedani. You can find more information about this at: https://codewithmosh.com 
 
