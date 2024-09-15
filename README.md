@@ -57,7 +57,7 @@ Please follow these instructions carefully to setup this project on your machine
 
 Now that you have set up Auth0 and configured your environment variables, you can run the React app using the following commands:
 
-    ```bash
+    ```
     # Install dependencies
     npm install
 
