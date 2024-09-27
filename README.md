@@ -67,22 +67,22 @@ npm start
 
 This will start the back-end process at `http://localhost:3000`. If port 3000 is in use on your machine, update the port number in the following files and run `npm start` again: 
 
- - json-server.json
- - src/main.tsx
+- json-server.json
+- src/main.tsx
 
 ## Only run a file or specific test
 To run only one file or one specific test when using Vitest with the UI, you have a few options:
 
 1.  Run a single file:You can specify the file path as an argument:
 
-    ```
-    vitest path/to/your/test/file.test.ts
-    ```
+```
+vitest path/to/your/test/file.test.ts
+```
 2.  Run a specific test within a file:Use the `-t` or `--testNamePattern` option with a regex pattern:
 
-    ```
-    vitest path/to/your/test/file.test.ts -t <name of your test>
-    ```
+```
+vitest path/to/your/test/file.test.ts -t <name of your test>
+```
 3.  Using the UI:After launching the UI with `vitest --ui`, you can:
 
 -   Click on individual test files in the file tree to run only that file
@@ -92,26 +92,26 @@ To run only one file or one specific test when using Vitest with the UI, you hav
 
 -   Use `.only` on a specific test or describe block:
 
-    ```
-        import  { describe, it }  from  'vitest'    
-        describe.only('This suite will run',  ()  =>  {    
-            it('This test will run',  ()  =>  {    
-                // ...    
-            })  
-        })    
-            
-        it.only('This specific test will run',  ()  =>  {    
-            // ...  
-        }) 
-    ```
+```
+import  { describe, it }  from  'vitest'    
+describe.only('This suite will run',  ()  =>  {    
+    it('This test will run',  ()  =>  {    
+        // ...    
+    })  
+})    
+    
+it.only('This specific test will run',  ()  =>  {    
+    // ...  
+}) 
+```
 -   Use `test.only()` for a single test:
 
-    ```
-        import  { test }  from  'vitest'    
-        test.only('This is the only test that will run',  ()  =>  {    
-            // ...  
-        })  
-    ```
+```
+import  { test }  from  'vitest'    
+test.only('This is the only test that will run',  ()  =>  {    
+    // ...  
+})  
+```
 1.  Using watch mode:If you're in watch mode, you can press 'p' to filter by a filename regex, or 't' to filter by a test name regex.
 
 Remember to remove `.only()` calls before committing your code, as they will prevent other tests from running in your CI/CD pipeline.These methods allow you to focus on specific tests or files, which can be very helpful during development or when debugging particular issues.
