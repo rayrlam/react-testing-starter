@@ -57,13 +57,13 @@ Please follow these instructions carefully to setup this project on your machine
 
 Now that you have set up Auth0 and configured your environment variables, you can run the React app using the following commands:
 
-    ```
-    # Install dependencies
-    npm install
+```
+# Install dependencies
+npm install
 
-    # Start the development server
-    npm start
-    ```
+# Start the development server
+npm start
+```
 
 This will start the back-end process at `http://localhost:3000`. If port 3000 is in use on your machine, update the port number in the following files and run `npm start` again: 
 
