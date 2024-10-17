@@ -70,6 +70,8 @@ This will start the back-end process at `http://localhost:3000`. If port 3000 is
 - json-server.json
 - src/main.tsx
 
+The front-end will be accessible at `http://localhost:5173`. Feel free to modify any part to better fit your project's style!
+
 ## Only run a file or specific test
 To run only one file or one specific test when using Vitest with the UI, you have a few options:
 
