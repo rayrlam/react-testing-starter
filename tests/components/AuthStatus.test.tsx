@@ -3,16 +3,22 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import AuthStatus from '../../src/components/AuthStatus';
 import { useAuth0 } from "@auth0/auth0-react";
 
+// Define a type for the user object
+interface User {
+  name?: string;
+  email?: string;
+}
+
 // Mock the useAuth0 hook
 vi.mock("@auth0/auth0-react");
 
 // Mock the log in & log out buttons
-vi.mock('./LoginButton', () => ({ default: () => <button>Log In</button>}));
+vi.mock('./LoginButton', () => ({ default: () => <button>Log In</button> }));
 vi.mock('./LogoutButton', () => ({ default: () => <div>Log Out</div> }));
 
 describe('AuthStatus', () => {
-  const mockUseAuth0 = (isLoading: boolean, isAuthenticated: boolean, user: any = null) => {
-    (useAuth0 as any).mockReturnValue({
+  const mockUseAuth0 = (isLoading: boolean, isAuthenticated: boolean, user: User | null = null) => {
+    (useAuth0 as ReturnType<typeof vi.fn>).mockReturnValue({
       isLoading,
       isAuthenticated,
       user,
@@ -20,7 +26,7 @@ describe('AuthStatus', () => {
   };
 
   beforeEach(() => {
-    vi.resetAllMocks();
+    vi.clearAllMocks();
   });
 
   it('renders loading state', () => {
