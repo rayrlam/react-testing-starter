@@ -72,48 +72,90 @@ This will start the back-end process at `http://localhost:3000`. If port 3000 is
 
 The front-end will be accessible at `http://localhost:5173`. Feel free to modify any part to better fit your project's style!
 
-## Only run a file or specific test
-To run only one file or one specific test when using Vitest with the UI, you have a few options:
+## Testing with Vitest
 
-1.  Run a single file:You can specify the file path as an argument:
+This project utilizes Vitest to conduct unit and component testing for Vue applications.
 
+### Why Vitest?
+
+Vitest is a blazing fast unit test framework powered by Vite. It's designed to be easy to use with Vue.js components and applications. Some key features include:
+
+- Fast execution and hot module replacement (HMR) support
+- Vue Test Utils integration for component testing
+- Jest-compatible API
+- Built-in code coverage
+- ESM, TypeScript and JSX support out of the box
+
+### Running Tests
+
+To run the Vitest tests, use the following command:
+
+```bash
+vitest
 ```
-vitest path/to/your/test/file.test.ts
-```
-2.  Run a specific test within a file:Use the `-t` or `--testNamePattern` option with a regex pattern:
 
-```
-vitest path/to/your/test/file.test.ts -t <name of your test>
-```
-3.  Using the UI:After launching the UI with `vitest --ui`, you can:
+### Run tests in a specific file
 
--   Click on individual test files in the file tree to run only that file
--   Click on individual test names to run only that specific test
-
-1.  Programmatically in your test file:
-
--   Use `.only` on a specific test or describe block:
-
+```bash
+vitest path/to/your/test/file.test.js
 ```
-import  { describe, it }  from  'vitest'    
-describe.only('This suite will run',  ()  =>  {    
-    it('This test will run',  ()  =>  {    
-        // ...    
-    })  
-})    
-    
-it.only('This specific test will run',  ()  =>  {    
-    // ...  
-}) 
-```
--   Use `test.only()` for a single test:
 
-```
-import  { test }  from  'vitest'    
-test.only('This is the only test that will run',  ()  =>  {    
-    // ...  
-})  
-```
-1.  Using watch mode:If you're in watch mode, you can press 'p' to filter by a filename regex, or 't' to filter by a test name regex.
+## Testing with Playwright
 
-Remember to remove `.only()` calls before committing your code, as they will prevent other tests from running in your CI/CD pipeline.These methods allow you to focus on specific tests or files, which can be very helpful during development or when debugging particular issues.
+This project leverages Playwright to perform end-to-end testing, enabling us to write and execute tests across all modern web browsers.
+
+### Running Tests
+
+To run the Playwright tests, use the following command:
+
+```bash
+npx playwright test
+```
+
+This will run all tests in headless mode by default.
+
+### Running Tests in UI Mode
+
+For a better developer experience with time travel debugging and watch mode, you can run tests in UI mode:
+
+```bash
+npx playwright test --ui
+```
+
+### Running Specific Tests
+
+To run a single test file:
+
+```bash
+npx playwright test tests/example.spec.ts
+```
+
+To run tests with a specific title:
+
+```bash
+npx playwright test -g "test title"
+```
+
+### Viewing Test Reports
+
+After running tests, you can view the HTML report:
+
+```bash
+npx playwright show-report
+```
+
+### Debugging Tests
+
+To debug tests, you can run them in headed mode:
+
+```bash
+npx playwright test --headed
+```
+
+Or use the debug mode with Playwright Inspector:
+
+```bash
+npx playwright test --debug
+```
+
+For more information on using Playwright, refer to the [official Playwright documentation](https://playwright.dev/docs/intro).
